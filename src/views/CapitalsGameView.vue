@@ -35,7 +35,7 @@ export default {
   <h1>Puntaje: {{ puntaje }}</h1>
   <div class="countries">
     <!-- TODO: usar los metodos definidos arriba dentro del input para llenar el estado de la capital a adivinar-->
-    <input placeholder="Adivina la capital" v-model="e" @input="setCapital" />
+    <input placeholder="Adivina la capital" @input="setCapital" />
     <button @click="adivinarCapital">Adivina!</button>
     <div class="countries-container">
       <!--TODO: CREAR EL COMPONENTE PARA VISUALIZAR EL PAIS-->
