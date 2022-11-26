@@ -24,6 +24,7 @@ export default {
     <img
       width="400"
       height="400"
+      src="https://countryflagsapi.com/png/${country.numeric_code}"
     />
     <div class="traducciones">
       <h2>Traducciones</h2>
