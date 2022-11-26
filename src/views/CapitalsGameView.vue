@@ -20,9 +20,11 @@ export default {
   methods: {
     setCapital(e) {
       //TODO: implementar. fija la capital del input.
+      this.capital = e;
     },
     adivinarCapital() {
       //TODO: implementar. verifica se la adivinanza es correcta.
+      if (this.capital == this.country["capital"]) this.puntaje++;
     },
   },
 };
@@ -32,12 +34,15 @@ export default {
   <h1>Puntaje: {{ puntaje }}</h1>
   <div class="countries">
     <!-- TODO: usar los metodos definidos arriba dentro del input para llenar el estado de la capital a adivinar-->
-    <input
-      placeholder="Adivina la capital"
-    />
+    <input placeholder="Adivina la capital" />
     <button @click="adivinarCapital">Adivina!</button>
     <div class="countries-container">
       <!--TODO: CREAR EL COMPONENTE PARA VISUALIZAR EL PAIS-->
+      <CountryComponent
+        v-for="(countries, index) in country"
+        :key="index"
+        :name="countries.name"
+      ></CountryComponent>
     </div>
   </div>
 </template>
