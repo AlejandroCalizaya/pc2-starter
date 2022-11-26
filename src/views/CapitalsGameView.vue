@@ -25,6 +25,7 @@ export default {
     adivinarCapital() {
       //TODO: implementar. verifica se la adivinanza es correcta.
       if (this.capital == this.country["capital"]) this.puntaje++;
+      this.created();
     },
   },
 };
@@ -34,15 +35,22 @@ export default {
   <h1>Puntaje: {{ puntaje }}</h1>
   <div class="countries">
     <!-- TODO: usar los metodos definidos arriba dentro del input para llenar el estado de la capital a adivinar-->
-    <input placeholder="Adivina la capital" />
+    <input placeholder="Adivina la capital" v-model="e" @input="setCapital" />
     <button @click="adivinarCapital">Adivina!</button>
     <div class="countries-container">
       <!--TODO: CREAR EL COMPONENTE PARA VISUALIZAR EL PAIS-->
-      <CountryComponent
-        v-for="(countries, index) in country"
-        :key="index"
-        :name="countries.name"
-      ></CountryComponent>
+      <img
+        src="https://countryflagsapi.com/png/${country.numeric_code}"
+        width="200"
+        height="200"
+      />
+      <h1>
+        {{ country.name }}
+      </h1>
+      <h2>Capital: ???</h2>
+      <h2>Capital: {{ country.capital }}</h2>
+      <h3>Moneda: {{ country.currency_name }} ({{ country.currency }})</h3>
+      <h3>Región: {{ country.region }}</h3>
     </div>
   </div>
 </template>
@@ -54,7 +62,7 @@ export default {
   }
 
   input {
-    line-height: 2em;
+    line-height: em;
   }
 
   .countries-container {
@@ -63,6 +71,11 @@ export default {
     overflow-y: auto;
     vertical-align: middle;
     padding: 10px;
+    white-space: nowrap;
+    width: 375px;
+    height: 375px;
+    border-radius: 2px;
+    border-color: grey;
   }
 }
 </style>

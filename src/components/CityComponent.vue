@@ -3,12 +3,12 @@ export default {
   name: "CityComponent",
   props: [
     "name",
-    "capital",
-    "currency_name",
-    "currency",
-    "region",
-    "code",
-    //TODO: crear una propiedad para determinar si al componente se le puede hacer click
+    "country_name",
+    "country_code",
+    "state_name",
+    "state_code",
+    "latitude",
+    "longitude",
   ],
 };
 </script>
@@ -18,17 +18,14 @@ export default {
   Mira las rutas para ver como redirigir al usuario.-->
   <div class="country">
     <!--TODO: Poblar el HTML con las propiedades. Usar https://countryflagsapi.com/png/${code}-->
-    <img
-      src="https://countryflagsapi.com/png/${code}"
-      width="200"
-      height="200"
-    />
     <h1>
       {{ name }}
     </h1>
-    <h2>Capital: {{ capital }}</h2>
-    <h3>Moneda: {{ currency_name }} ({{ currency }})</h3>
-    <h3>Región: {{ region }}</h3>
+    <h2>País: {{ country_name }} ({{ country_code }})</h2>
+    <h3>Estado: {{ state_name }} ({{ state_code }})</h3>
+    <h3>Latitud: {{ latitude }}</h3>
+    <h3>Longitud: {{ longitude }}</h3>
+    <img src="/src/assets/city.jpg" width="200" height="160" />
   </div>
 </template>
 
